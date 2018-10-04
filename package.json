@@ -1,0 +1,29 @@
+{
+  "name": "auraxis.network",
+  "version": "1.0.0",
+  "description": "Interlink communication network set in the fictional world of Auraxis",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "semantic-ui": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rchillard/auraxis.network.git"
+  },
+  "keywords": [
+    "Planetside",
+    "2"
+  ],
+  "author": "RCH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rchillard/auraxis.network/issues"
+  },
+  "homepage": "https://github.com/rchillard/auraxis.network#readme"
+}
