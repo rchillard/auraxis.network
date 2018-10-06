@@ -4,31 +4,46 @@
 <div class="background">
     <div class="ui container">
         <h1>Bases Index</h1>
-        
-        <div class="ui link cards">
-          <div class="card">
-            <div class="image">
-              <img src="https://semantic-ui.com/images/avatar2/large/matthew.png">
-            </div>
-            <div class="content">
-              <div class="header">Matt Giampietro</div>
-              <div class="meta">
-                <a>Friends</a>
-              </div>
-              <div class="description">
-                Matthew is an interior designer living in New York.
-              </div>
-            </div>
-            <div class="extra content">
-              <span class="right floated">
-                Joined in 2013
-              </span>
-              <span>
-                <i class="user icon"></i>
-                75 Friends
-              </span>
-            </div>
+        <div class="ui container">
+          <div class="three ui buttons">
+            <button class="ui button">Add New</button>
+            <button class="ui button">Specs</button>
+            <button class="ui button">Support</button>
           </div>
+        </div>
+        <div class="ui three link cards">
+          <% bases.forEach(function(base) { %>
+            <div class="ui centered card">
+              <div class="image">
+                <img src="<%= base.image %>">
+              </div>
+              <div class="content">
+                <div class="header"><%= base.name %></div>
+                <div class="meta">
+                  <a><%= base.type %></a>
+                </div>
+                <div class="description">
+                  <%= base.description %>
+                </div>
+              </div>
+              <div class="extra content" style="text-align: center">
+                <span class="right floated">
+                  <%= base.continent %>
+                </span>
+                <span class="left floated">
+                  <i class="user icon"></i>
+                  <%= base.points %>
+                </span>
+                <span>
+                  <a href="/bases/<%= base._id %>">
+                    <div class="mini ui basic button">
+                      Edit
+                    </div>
+                  </a>
+                </span>
+              </div>
+            </div>
+          <% }) %>
     </div>
 </div>
 

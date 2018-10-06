@@ -11,7 +11,24 @@ var Base = require("../models/base")
 // /bases - show all bases
 router.get("/", function(req, res) {
     // res.send("/bases route reached!")
-    res.render("bases/index")
+    Base.find({}, function(err, allBases) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.render("bases/index", {bases: allBases})
+        }
+    })
+})
+
+// /bases/:id - show a base based off id
+router.get("/:id", function(req, res) {
+    Base.findById(req.params.id, function(err, foundBase) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.render("bases/show", {base: foundBase} )
+        }
+    })
 })
 
 // /bases/new - show form to create a new base
