@@ -1,9 +1,8 @@
 <% include ../partials/header %>
 
-<!--<img class="ui fluid image background" src="/images/background.png">-->
 <div class="background">
     <div class="ui container">
-        <div class="ui segment">
+        <div class="ui padded segment">
             <div class="ui two column very relaxed grid">
                 <div class="column">
                     <div class="image">
@@ -18,17 +17,22 @@
                     </p>
                     <h3>
                         <%= base.continent %>
+                    </h3>                    
+                    <h3>
+                        Points: <%= base.points %>
                     </h3>
-
-                    <div class="two ui buttons">
-                        <button class="ui button yellow">Edit</button>
-                        <a class="ui button red" href="/bases/<%= base._id %>">Delete</a>
+                    <div class="ui buttons">
+                        <a href="/bases/<%= base._id %>/edit"><button class="ui button yellow" href="/bases/<%= base._id %>/edit">Modify</button></a>
+                        <div class="or"></div>
+                        <form action="/bases/<%= base._id %>/?_method=DELETE" method="POST">
+                            <button class="ui button red">Delete</button>
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <% include ../partials/footer %>

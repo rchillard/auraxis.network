@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+
+<div class="background">
+    <div class="ui container">
+        <div class="ui segment">
+            <h1>Create New Base</h1>
+            <form action="/bases/<%= base._id %>?_method=PUT" class="ui form" method="POST">
+                <div class="four fields">
+                    <div class="field">
+                        <label>Name</label>
+                        <input type="text" name="base[name]" placeholder="name" value="<%= base.name %>">
+                    </div>                    
+                    <div class="field">
+                        <label>Type</label>
+                        <div class="field">
+                            <select name="type">
+                                <option value="<%= base.type %>"><%= base.type %></option>
+                                <option value="Tech Plant">Tech Plant</option>
+                                <option value="Bio-Lab">Bio-Lab</option>
+                                <option value="Amp Station">Amp Station</option>
+                                <option value="Large Outpost">Large Outpost</option>
+                                <option value="Small Outpost">Small Outpost</option>
+                            </select>
+                        </div>
+                    </div>                     
+                    <div class="field">
+                        <label>Points</label>
+                        <div class="field">
+                            <select name="base[points]">
+                                <option value="<%= base.points %>"><%= base.points %></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>                      
+                    <div class="field">
+                        <label>Continent</label>
+                        <div class="field">
+                            <select name="base[continent]">
+                                <option value="<%= base.continent %>"><%= base.continent %></option>
+                                <option value="Amerish">Amerish</option>
+                                <option value="Esamir">Esamir</option>
+                                <option value="Hossin">Hossin</option>
+                                <option value="Indar">Indar</option>
+                            </select>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <div class="ui label">
+                            Image URL:
+                        </div>
+                        <input type="text" name="base[image]" placeholder="myimage.com/image.png" value="<%= base.image %>">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Description</label>
+                    <textarea name="base[description]"><%= base.description %></textarea>
+                </div>
+                <button class="ui large button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,6 +1,8 @@
 
 // Setup Express
-var express = require("express")
+var express         = require("express")
+var bodyParser      = require("body-parser")
+var methodOverride  = require("method-override")
 
 // Import Models
 var Base = require("./models/base")
@@ -14,6 +16,8 @@ var app = express()
 // Configure Express
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(methodOverride("_method"))
 
 // Setup Database, Dependencies, and Connection
 var mongoose = require("mongoose")

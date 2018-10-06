@@ -6,6 +6,7 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "method-override": "^3.0.0",
     "mongoose": "^5.3.1",
     "semantic-ui": "^2.4.0"
   },

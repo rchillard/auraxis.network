@@ -1,19 +1,18 @@
 <% include ../partials/header %>
 
 <!--<img class="ui fluid image background" src="/images/background.png">-->
-<div class="background">
+<div class="background" style="background-color: purple">
     <div class="ui container">
-        <h1>Bases Index</h1>
-        <div class="ui container">
+        <div class="ui container" style="padding-top: 20px">
           <div class="three ui buttons">
-            <button class="ui button">Add New</button>
+            <a class="ui button" href="bases/new">Add New</a>
             <button class="ui button">Specs</button>
             <button class="ui button">Support</button>
           </div>
         </div>
-        <div class="ui three link cards">
+        <div class="ui four link cards">
           <% bases.forEach(function(base) { %>
-            <div class="ui centered card">
+            <div class="ui card">
               <div class="image">
                 <img src="<%= base.image %>">
               </div>
@@ -37,15 +36,15 @@
                 <span>
                   <a href="/bases/<%= base._id %>">
                     <div class="mini ui basic button">
-                      Edit
+                      View
                     </div>
                   </a>
                 </span>
               </div>
             </div>
           <% }) %>
+      </div>
     </div>
 </div>
-
 
 <% include ../partials/footer %>
