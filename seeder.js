@@ -1,7 +1,8 @@
 var mongoose = require("mongoose");
 var Base = require("./models/base");
+var Idea = require("./models/idea")
 
-var data = [
+var base_data = [
     {
         name: "Tawrich Tech Plant", 
         image: "https://vignette.wikia.nocookie.net/planetside2/images/8/81/Tawrich_Tech_Plant.png/revision/latest/scale-to-width-down/480?cb=20180308205755",
@@ -44,6 +45,27 @@ var data = [
     }
 ]
 
+var idea_data = [
+    {
+        name: "Implement better CSS",
+        author: "Kesl",
+        description: "You should implement better CSS for the site!",
+        score: 5
+    },
+    {
+        name: "Add a Chemical Actuator",
+        author: "Gily",
+        description: "Seriously, we need to continue our research into nanites and how they interact with various chemical processes.  This is not small work.  We will need advanced equipment to do this correct.",
+        score: 2
+    },
+    {
+        name: "Build a Flux Capacitor",
+        author: "Solron",
+        description: "We need propre time travel up in here!",
+        score: 12
+    }
+]
+
 function seedDB(){
     // Remove all bases by dropping that collection
     Base.remove({}, function(err) {
@@ -51,13 +73,30 @@ function seedDB(){
             console.log(err)
         } else {
             console.log("Removed bases!")
-            data.forEach(function(seed){
+            base_data.forEach(function(seed){
                 Base.create(seed, function(err, base) {
                     if(err) {
                         console.log(err)
                     } else {
-                        console.log("Added a new base!")
+                        console.log("Added a new base: " + base.name)
                         base.save()
+                    }
+                })
+            })
+        }
+    })    
+    Idea.remove({}, function(err) {
+        if(err) {
+            console.log(err)
+        } else {
+            console.log("Removed ideas!")
+            idea_data.forEach(function(seed){
+                Idea.create(seed, function(err, idea) {
+                    if(err) {
+                        console.log(err)
+                    } else {
+                        console.log("Added a new idea: " + idea.name)
+                        idea.save()
                     }
                 })
             })

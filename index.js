@@ -9,6 +9,7 @@ var Base = require("./models/base")
 
 // Import Routes
 var baseRoutes = require("./routes/bases")
+var ideaRoutes = require("./routes/ideas")
 
 // Initialize Express
 var app = express()
@@ -34,6 +35,7 @@ app.get("/", function(req, res){
 
 // Use routes and pass that the index in bases.js is now /bases
 app.use("/bases", baseRoutes)
+app.use("/ideas", ideaRoutes)
 
 // Start server
 // app.listen(port, IP, function)
