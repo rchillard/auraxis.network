@@ -4,6 +4,9 @@
 var express = require("express")
 var router = express.Router()
 
+// middleware
+var middleware = require("../middleware")
+
 // import models
 var Post = require("../models/post")
 
@@ -16,6 +19,7 @@ router.get("/", function(req, res) {
         if (err) {
             console.log(err)
         } else {
+            console.log(allPosts)
             res.render("posts/index", {posts: allPosts})
         }
     })

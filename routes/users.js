@@ -4,6 +4,9 @@ var router = express.Router()
 var passport = require("passport")
 var User = require("../models/user")
 
+// middleware
+var middleware = require("../middleware")
+
 // ====================
 // AUTHORIZATION ROUTES
 // ====================

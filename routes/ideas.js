@@ -4,6 +4,9 @@
 var express = require("express")
 var router = express.Router()
 
+// middleware
+var middleware = require("../middleware")
+
 // import models
 var Idea = require("../models/idea")
 
@@ -27,7 +30,7 @@ router.get("/", function(req, res) {
 })
 
 // /ideas - post a new idea
-router.post("/", function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     console.log("POST /ideas route hit")
     // pull each of the variables out of the body
     var name = req.body.name
@@ -48,7 +51,7 @@ router.post("/", function(req, res) {
 })
 
 // /ideas/new - show form to create a new idea
-router.get("/new", function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
     console.log("GET /ideas/new route hit")
     res.render("ideas/new")
 })
@@ -68,7 +71,7 @@ router.get("/:id", function(req, res) {
 
 
 // /ideas/:id/edit - show form to edit an existing idea
-router.get("/:id/edit", function(req, res) {
+router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
     console.log("GET /ideas/:id/edit route hit")
     console.log(req.params.id)
     Idea.findById(req.params.id, function(err, foundIdea) {
@@ -81,7 +84,7 @@ router.get("/:id/edit", function(req, res) {
 })
 
 // /ideas/:id - accept updates to an individual idea
-router.put("/:id", function(req, res) {
+router.put("/:id", middleware.isLoggedIn, function(req, res) {
      console.log("PUT /ideas/:id route hit")
     // find and update the correct idea
     console.log(req.body)
@@ -96,7 +99,7 @@ router.put("/:id", function(req, res) {
 })
 
 // /ideas/:id - delete an individual idea
-router.delete("/:id", function(req, res) {
+router.delete("/:id", middleware.isLoggedIn, function(req, res) {
     Idea.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
             console.log(err)

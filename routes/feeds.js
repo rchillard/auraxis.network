@@ -4,6 +4,9 @@
 var express = require("express")
 var router = express.Router()
 
+// middleware
+var middleware = require("../middleware")
+
 // import models
 var Feed = require("../models/feed")
 

@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<!-- Index page for Feeds -->
+<div class="background-ideas">
+<div class="ui container segment">
+  <div class="ui three column grid">
+    <div class="two wide column">
+    </div>
+    <div class="twelve wide column">
+      <h3><%= post.title %></h3>
+      <p><%= post.content %></p>
+      <p>Published by <strong><%= post.author %></strong></p>
+    </div>
+    <div class="two wide column">
+      <div class="row">
+        <a href="/posts"><button class="ui button" style="margin-bottom: 5px">Return</button></a>
+      </div>
+      <!--<div class="row">-->
+      <!--  <button class="ui red button"><i class="arrow alternate circle down large outline icon"></i>1</button>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+</div>
+<% include ../partials/footer %>

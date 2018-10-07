@@ -24,7 +24,8 @@
                   <a class="ui inverted button" href="/users/login">Connect</a>
                   <a class="ui inverted button" href="/users/register" style="margin-left: 5px">Register</a>
               <% } else { %>
-                  <a class="ui inverted button" href="/users/<%= currentUser._id %>"><%= currentUser.username %></a>
+                  <a class="ui inverted button" href="/feeds/<%= currentUser._id %>">Feed</a>
+                  <a class="ui inverted button" href="/users/<%= currentUser._id %>" style="margin-left: 5px"><%= currentUser.username %></a>
               <% } %>
             </div>
         </div>

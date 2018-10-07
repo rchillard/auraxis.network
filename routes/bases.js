@@ -4,6 +4,9 @@
 var express = require("express")
 var router = express.Router()
 
+// middleware
+var middleware = require("../middleware")
+
 // import models
 var Base = require("../models/base")
 
@@ -22,7 +25,7 @@ router.get("/", function(req, res) {
 })
 
 // /bases - post a new base
-router.post("/", function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     console.log("POST /bases route hit")
     // pull each of the variables out of the body
     var name = req.body.name
@@ -45,7 +48,7 @@ router.post("/", function(req, res) {
 })
 
 // /bases/new - show form to create a new base
-router.get("/new", function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
     console.log("GET /bases/new route hit")
     res.render("bases/new")
 })
@@ -65,7 +68,7 @@ router.get("/:id", function(req, res) {
 
 
 // /bases/:id/edit - show form to edit an existing base
-router.get("/:id/edit", function(req, res) {
+router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
     console.log("GET /bases/:id/edit route hit")
     console.log(req.params.id)
     Base.findById(req.params.id, function(err, foundBase) {
@@ -78,7 +81,7 @@ router.get("/:id/edit", function(req, res) {
 })
 
 // /bases/:id - accept updates to an individual base
-router.put("/:id", function(req, res) {
+router.put("/:id", middleware.isLoggedIn, function(req, res) {
      console.log("PUT /bases/:id route hit")
     // find and update the correct base
     Base.findByIdAndUpdate(req.params.id, req.body.base, function(err, updatedBase) {
@@ -92,7 +95,7 @@ router.put("/:id", function(req, res) {
 })
 
 // /bases/:id - delete an individual base
-router.delete("/:id", function(req, res) {
+router.delete("/:id", middleware.isLoggedIn, function(req, res) {
     Base.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
             console.log(err)

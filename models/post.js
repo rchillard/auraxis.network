@@ -7,13 +7,14 @@ var postSchema = new mongoose.Schema({
     title: String,
     content: String,
     date: Date,
-    author: {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        username: String
-    }
+    author: String
+    // author: {
+    //     id: {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "User"
+    //     },
+    //     username: String
+    // }
 })
 
 // Compose a model from the schema

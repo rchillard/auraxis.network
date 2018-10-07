@@ -11,12 +11,14 @@ var Base = require("./models/base")
 var Feed = require("./models/feed")
 var Idea = require("./models/idea")
 var User = require("./models/user")
+var Post = require("./models/post")
 
 // Import Routes
 var baseRoutes = require("./routes/bases")
 var feedRoutes = require("./routes/feeds")
 var ideaRoutes = require("./routes/ideas")
 var userRoutes = require("./routes/users")
+var postRoutes = require("./routes/posts")
 
 // Initialize Express
 var app = express()
@@ -36,8 +38,8 @@ mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true })
 
 // Seed the database - comment this out when done testing
 // WARNING - THIS WILL DESTROY ALL DATA
-// var SeedDB = require("./seeder")
-// SeedDB() //seed the database
+var SeedDB = require("./seeder")
+SeedDB() //seed the database
 
 // Express configuration for session support
 app.use(require("express-session")({
@@ -72,6 +74,7 @@ app.use("/bases", baseRoutes)
 app.use("/feeds", feedRoutes)
 app.use("/ideas", ideaRoutes)
 app.use("/users", userRoutes)
+app.use("/posts", postRoutes)
 
 // Start server
 // app.listen(port, IP, function)
