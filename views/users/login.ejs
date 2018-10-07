@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<div class="ui container very padded">
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+        <h2 class="ui gray image header">
+          <i class="expand icon"></i>
+          <div class="content">
+            Connect to Worldnet
+          </div>
+        </h2>
+        <form class="ui large form" action="/users/login" method="POST">
+          <div class="ui stacked segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="username" placeholder="Username">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" placeholder="Password">
+              </div>
+            </div>
+            <button class="ui fluid large submit button">Login</button>
+          </div>
+    
+          <div class="ui error message"></div>
+    
+        </form>
+    
+        <div class="ui message">
+          New citizen? <a href="/users/register">Register</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

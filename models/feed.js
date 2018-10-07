@@ -5,7 +5,9 @@ var mongoose = require("mongoose")
 
 var feedSchema = new mongoose.Schema({
     name: String,
-    description: String
+    description: String,
+    faction: String,
+    updated: Date
 })
 
 // Compose a model from the schema

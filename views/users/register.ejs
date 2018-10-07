@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+
+<div class="ui container very padded">
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+        <h2 class="ui gray image header">
+          <i class="user plus icon"></i>
+          <div class="content">
+            Join the Network
+          </div>
+        </h2>
+        <form class="ui large form" action="/users/new" method="POST">
+          <div class="ui stacked segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="username" placeholder="Username">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" placeholder="Password" pattern=".{5,20}" required title="5 to 20 characters">
+              </div>
+            </div>            
+            <div class="field">
+              <div class="ui labeled input">
+                <div class="ui label">
+                  <i class="chess queen icon"></i>Faction 
+                </div>
+                <select name="faction">
+                  <option value=""></option>
+                  <option value="New Conglomerate">New Conglomerate</option>
+                  <option value="Terran Republic">Terran Republic</option>
+                  <option value="Vanu Sovereignty">Vanu Sovereignty</option>
+                  <option value="Undeclared">Undeclared</option>
+                </select>
+                <!--<input type="text" name="faction" placeholder="Faction">-->
+              </div>
+            </div>
+            <button class="ui fluid large submit button">Register</button>
+          </div>
+    
+          <div class="ui error message"></div>
+    
+        </form>
+    
+        <div class="ui message">
+          Already registered? <a href="/users/login">Connect</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

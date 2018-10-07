@@ -27,8 +27,9 @@ router.post("/", function(req, res) {
     // pull each of the variables out of the body
     var name = req.body.name
     var description = req.body.description
+    var faction = req.body.faction
     // create a new object storing all the variables together
-    var newFeed = { name: name, description: description }
+    var newFeed = { name: name, description: description, faction: faction }
     // instantiate a new Feed object
     Feed.create(newFeed, function(err, newlyCreated) {
         if (err) {

@@ -1,5 +1,6 @@
 <% include ../partials/header %>
 
+<!-- Index page for Feeds -->
   <div class="ui vertical stripe very padded segment">
     <div class="ui middle aligned stackable grid container">
       <div class="row">
@@ -11,34 +12,31 @@
           <a class="ui button" href="/ideas/new">Propose an Idea</a>
         </div>
         <div class="eight wide right floated column">
-          <img src="https://vignette.wikia.nocookie.net/planetside2/images/f/f1/Interlink_Facility_Top.png/revision/latest/scale-to-width-down/670?cb=20130802004142" class="ui large bordered rounded image">
+          <img src="https://static.fjcdn.com/large/pictures/c1/68/c16873_4243612.jpg" class="ui large bordered rounded image">
         </div>
       </div>
     </div>
   </div>
   
 <div class="background-ideas">
-  <% ideas.forEach(function(idea) { %>
-    <div class="ui container segment">
-      <div class="ui three column grid">
-        <div class="two wide column">
-          <h1 style="text-align: center; vertical-align: middle; line-height: 3em"><%= idea.score %></h1>
+  <div class="ui container segment">
+    <div class="ui three column grid">
+      <div class="four wide column">
+        <div class="row">
+          <h3>New Conglomerate</h3>
         </div>
-        <div class="twelve wide column">
-          <h3><%= idea.name %></h3>
-          <p><%= idea.description %></p>
-          <p>Suggested by <strong><%= idea.author %></strong></p>
+      </div>
+      <div class="four wide column">
+        <div class="row">
+          <h3>Terran Republic</h3>
         </div>
-        <div class="two wide column">
-          <div class="row">
-            <button class="ui green button" style="margin-bottom: 5px"><i class="arrow alternate circle up large outline icon"></i>1</button>
-          </div>
-          <div class="row">
-            <button class="ui red button"><i class="arrow alternate circle down large outline icon"></i>1</button>
-          </div>
+      </div>
+      <div class="four wide column">
+        <div class="row">
+          <h3>Vanu Sovereignity</h3>
         </div>
       </div>
     </div>
-  <% }) %>
+  </div>
 </div>
 <% include ../partials/footer %>

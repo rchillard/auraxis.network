@@ -16,11 +16,16 @@
     <div class="ui large top inverted menu" style="margin: 0">
         <div class="ui container">
             <div class="header item"><a href="/">Auraxis Network</a></div>
-            <a class="item" href="/ideas">Interlink</a>
+            <a class="item" href="/interlink">Interlink</a>
             <a class="item" href="/bases">Bases</a>
-            <a class="item" href="/feeds">Feeds</a>
+            <a class="item" href="/ideas">Ideas</a>
             <div class="right item">
-              <a class="ui inverted button" href="/connect">Connect</a>
+              <% if (!currentUser) { %>
+                  <a class="ui inverted button" href="/users/login">Connect</a>
+                  <a class="ui inverted button" href="/users/register" style="margin-left: 5px">Register</a>
+              <% } else { %>
+                  <a class="ui inverted button" href="/users/<%= currentUser._id %>"><%= currentUser.username %></a>
+              <% } %>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
-var mongoose = require("mongoose");
-var Base = require("./models/base");
+var mongoose = require("mongoose")
+var Base = require("./models/base")
 var Idea = require("./models/idea")
+var User = require("./models/user")
 
 var base_data = [
     {
@@ -66,6 +67,27 @@ var idea_data = [
     }
 ]
 
+var user_data = [
+    {
+        username: "testnc",
+        password: "testtest",
+        faction: "New Conglomerate",
+        avatar: "https://www-cdn.planetside2.com/images/empires/nc/nc-soldier-right.png?v=3304520529"
+    },
+    {
+        username: "testtr",
+        password: "testtest",
+        faction: "Terran Republic",
+        avatar: "https://www-cdn.planetside2.com/images/empires/tr/tr-soldier-right.png?v=157706187"
+    },
+    {
+        username: "testvs",
+        password: "testtest",
+        faction: "Vanu Sovereignty",
+        avatar: "https://www-cdn.planetside2.com/images/empires/vs/vs-soldier-right.png?v=616336742"
+    }
+]
+
 function seedDB(){
     // Remove all bases by dropping that collection
     Base.remove({}, function(err) {
@@ -78,7 +100,7 @@ function seedDB(){
                     if(err) {
                         console.log(err)
                     } else {
-                        console.log("Added a new base: " + base.name)
+                        console.log("BASE: added new : " + base.name)
                         base.save()
                     }
                 })
@@ -95,8 +117,25 @@ function seedDB(){
                     if(err) {
                         console.log(err)
                     } else {
-                        console.log("Added a new idea: " + idea.name)
+                        console.log("IDEA: added new : " + idea.name)
                         idea.save()
+                    }
+                })
+            })
+        }
+    })    
+    User.remove({}, function(err) {
+        if(err) {
+            console.log(err)
+        } else {
+            console.log("Removed users!")
+            user_data.forEach(function(seed){
+                User.create(seed, function(err, user) {
+                    if(err) {
+                        console.log(err)
+                    } else {
+                        console.log("USER: added new : " + user.username)
+                        user.save()
                     }
                 })
             })
