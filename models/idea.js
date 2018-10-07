@@ -6,7 +6,6 @@ var mongoose = require("mongoose")
 var ideaSchema = new mongoose.Schema({
     name: String,
     author: String,
-    type: String,
     description: String,
     score: Number
 })

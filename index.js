@@ -6,10 +6,13 @@ var methodOverride  = require("method-override")
 
 // Import Models
 var Base = require("./models/base")
+var Idea = require("./models/idea")
+var Feed = require("./models/feed")
 
 // Import Routes
 var baseRoutes = require("./routes/bases")
 var ideaRoutes = require("./routes/ideas")
+var feedRoutes = require("./routes/feeds")
 
 // Initialize Express
 var app = express()
@@ -30,12 +33,14 @@ SeedDB() //seed the database
 
 // Basic index route
 app.get("/", function(req, res){
+    console.log("GET / root route")
     res.render("index")
 })
 
 // Use routes and pass that the index in bases.js is now /bases
 app.use("/bases", baseRoutes)
 app.use("/ideas", ideaRoutes)
+app.use("/feeds", feedRoutes)
 
 // Start server
 // app.listen(port, IP, function)

@@ -16,6 +16,11 @@ router.get("/", function(req, res) {
         if (err) {
             console.log(err)
         } else {
+            // allIdeas is an array of objects, each representing a single idea.  Each idea has a score
+            // Sort in place the array of objects by the score of each idea and then return it
+            allIdeas.sort(function(a, b){
+                return b.score - a.score;
+            })
             res.render("ideas/index", {ideas: allIdeas})
         }
     })
@@ -79,12 +84,13 @@ router.get("/:id/edit", function(req, res) {
 router.put("/:id", function(req, res) {
      console.log("PUT /ideas/:id route hit")
     // find and update the correct idea
+    console.log(req.body)
     Idea.findByIdAndUpdate(req.params.id, req.body.idea, function(err, updatedIdea) {
         if (err) {
             console.log(err)
             res.redirect("/ideas")
         } else {
-            res.redirect("/ideas/" + req.params.id)
+            res.redirect("/ideas")
         }
     })
 })

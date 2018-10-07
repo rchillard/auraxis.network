@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<div class="background-ideas">
+    <div class="ui container">
+        <div class="ui segment">
+            <h1>Edit Your Idea '<%= idea.name %>'</h1>
+            <form action="/ideas/<%= idea._id %>?_method=PUT" class="ui form" method="POST">
+                <div class="field">
+                    <label>Name</label>
+                    <input type="text" name="name" value="<%= idea.name %>">
+                </div>                    
+                <div class="field">
+                    <label>Description</label>
+                    <textarea name="description"><%= idea.description %></textarea>
+                </div>
+                <button class="ui large button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
