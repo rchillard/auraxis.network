@@ -5,7 +5,13 @@ var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
     faction: String,
-    avatar: String
+    avatar: String,
+    posts: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Post"
+        }
+    ]
 })
 
 // Future method to automatically assign avatar based off of the faction selected.  This is broken right now!

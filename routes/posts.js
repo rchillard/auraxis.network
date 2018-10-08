@@ -9,6 +9,7 @@ var middleware = require("../middleware")
 
 // import models
 var Post = require("../models/post")
+var User = require("../models/user")
 
 // routes
 // /posts - show all posts
@@ -19,31 +20,32 @@ router.get("/", function(req, res) {
         if (err) {
             console.log(err)
         } else {
-            console.log(allPosts)
+            // console.log(allPosts)
             res.render("posts/index", {posts: allPosts})
         }
     })
 })
 
 // /posts - post a new post
-router.post("/", function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     console.log("POST /posts route hit")
-    // pull each of the variables out of the body
-    var name = req.body.name
-    var type = req.body.type
-    var points = req.body.points
-    var continent = req.body.continent
-    var image = req.body.image
-    var description = req.body.description
-    // create a new object storing all the variables together
-    var newPost = { name: name, type: type, points: points, continent: continent, image: image, description: description }
-    // instantiate a new Post object
-    Post.create(newPost, function(err, newlyCreated) {
+    User.findById(req.user._id, function(err, foundUser) {
         if (err) {
             console.log(err)
         } else {
-            console.log(newlyCreated)
-            res.redirect("/posts")
+            Post.create(req.body.post, function(err, post) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    post.author.id = req.user._id
+                    post.author.username = req.user.username
+                    post.author.faction = req.user.faction
+                    post.save()
+                    foundUser.posts.push(post)
+                    foundUser.save()
+                    res.redirect("/posts")
+                }
+            })
         }
     })
 })
@@ -55,7 +57,7 @@ router.get("/new", function(req, res) {
 })
 
 
-// /posts/:id - show a post postd off id
+// /posts/:id - show a post based off id
 router.get("/:id", function(req, res) {
     console.log("GET /posts/:id/ show route hit")
     Post.findById(req.params.id, function(err, foundPost) {

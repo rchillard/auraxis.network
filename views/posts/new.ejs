@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<div class="background-ideas">
+    <div class="ui container background-ideas">
+        <div class="ui segment">
+            <h1>Create a New Post</h1>
+            <form action="/posts" class="ui form" method="POST">
+                <div class="field">
+                    <label>Title</label>
+                    <input type="text" name="post[title]" placeholder="Title">
+                </div>                    
+                <div class="field">
+                    <label>Content</label>
+                    <textarea name="post[content]"></textarea>
+                </div>
+                <button class="ui large button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

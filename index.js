@@ -69,6 +69,20 @@ app.get("/", function(req, res){
     res.render("index")
 })
 
+// Interlink route
+app.get("/interlink", function(req, res){
+    console.log("GET /interlink route")
+    Post.find({}, function(err, foundPosts) {
+      if (err) {
+          console.log(err)
+      }  else {
+          console.log(foundPosts)
+          res.render("interlink", { posts: foundPosts })
+      }
+    })
+   
+})
+
 // Use routes and pass that the index in <route>.js is now /bases /feeds /ideas /users etc.
 app.use("/bases", baseRoutes)
 app.use("/feeds", feedRoutes)

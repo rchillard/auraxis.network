@@ -1,0 +1,39 @@
+<% include ./partials/header %>
+
+<!-- Index page for Feeds -->
+  <div class="ui vertical stripe very padded segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">What is the Interlink?</h3>
+          <p>This is our idea tracker.  You can propose new ideas for Auraxis Network here.  The highest voted idea will be implemented first.  The Interlink Facility is also one of the in-game connections to this lore forward site.  You are only reaching this website, because it is being broadcast from an Interlink on Hossin.</p>
+          <h3 class="ui header">Why go through all this trouble?</h3>
+          <p>I am in the process of learning how to code, and having a passion project like this one is something that has already helped me progress by giving me a real (and fun) project to work on.  Suggest new ideas and I will implement them!</p>
+          <a class="ui button" href="/ideas/new">Propose an Idea</a>
+        </div>
+        <div class="eight wide right floated column">
+          <img src="https://static.fjcdn.com/large/pictures/c1/68/c16873_4243612.jpg" class="ui large bordered rounded image">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ui container">
+    <div class="ui grid">
+      <div class="three column row">
+        <div class="column center aligned">New Conglomerate</div>
+          <% posts.forEach(function(post) { %>
+            <div class="row">
+                <h3><%= post.title %></h3>
+                <p><%= post.content %></p>
+                <p>By <%= post.author.username %></p>
+                <p><%= post.author.faction %></p>
+            </div>
+          <% }) %>
+        <div class="column center aligned">Terran Republic</div>
+        <div class="column center aligned">Vanu Sovereignty</div>
+      </div>
+    </div>
+  </div>
+
+<% include ./partials/footer %>
