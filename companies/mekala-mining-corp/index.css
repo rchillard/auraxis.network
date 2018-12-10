@@ -19,6 +19,10 @@
     background-color: var(--nc-gold)
 }
 
+.fillgold {
+    fill: #9B8F79;
+}
+
 .ncorange {
     background-color: var(--nc-orange)
 }
@@ -34,7 +38,7 @@ h1, h2 {
 
 .footer {
     background-color: var(--nc-navyblue);
-    height: 250px;
+    height: 200px;
 }
 
 .title {
