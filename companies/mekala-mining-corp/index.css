@@ -47,13 +47,40 @@ h1, h2 {
 }
 
 .navbar.scrolled {
-    background: rgb(222,192,222);
-    transition: background 500ms;
+    /* display: block;
+    transition: display 500ms; */
 }
 
 .metrics {
     position:relative;
     display:inline-block;
+}
+
+.overlay .jumbotron#carousel1 {
+    position:absolute;
+    top:20%;
+    left:10%;
+    color:#fff;
+    width: 35rem;
+    background-color: var(--nc-darkblue);
+}
+
+.overlay .jumbotron#carousel2 {
+    position:absolute;
+    top:60%;
+    left:20%;
+    color:#fff;
+    width: 35rem;
+    background-color: var(--nc-darkblue);
+}
+
+.overlay .jumbotron#carousel3 {
+    position:absolute;
+    top:35%;
+    left:60%;
+    color:#fff;
+    width: 35rem;
+    background-color: var(--nc-darkblue);
 }
 
 .overlay .jumbotron {
