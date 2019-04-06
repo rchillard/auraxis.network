@@ -4,4 +4,5 @@ Interlink communication network set in the fictional world of Auraxis.  Auraxis 
 ## Operational Services
 
 ## Upcoming Services
-Auraxis Ad Service
+* Ads  - auraxis.network/ads, an advertisement service that returns advertisements and propaganda images
+* Time - auraxis.network/time, a simple API that returns the time on Auraxis
