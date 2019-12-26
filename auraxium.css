@@ -32,3 +32,33 @@
   --vs-gray-dark: #262837;
   --vs-black: #000000;
 }
+
+body {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". header ."
+    ". main ."
+    ". footer .";
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: (10, repeat 10%);
+}
+
+footer {
+  grid-area: footer;
+}
