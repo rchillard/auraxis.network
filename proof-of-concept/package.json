@@ -4,7 +4,7 @@
   "description": "Interlink communication network set in the fictional world of Auraxis",
   "main": "index.js",
   "dependencies": {
-    "ejs": "^3.1.9",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.15.6",
     "method-override": "^3.0.0",
